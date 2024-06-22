@@ -223,19 +223,27 @@ Write a program to generate Pascal's Triangle up to a given number of rows.
 
 **Example:**
 ```python
-def generate_pascals_triangle(n):
-    triangle = [[1]]
-    for i in range(1, n):
-        row = [1]
-        for j in range(1, i):
-            row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
-        row.append(1)
-        triangle.append(row)
-    return triangle
+n = 6
 
-# Test Cases
-for row in generate_pascals_triangle(5):
-    print(row)
+# iterate up to n
+for i in range(n):
+    # adjust space
+    print(' '*(n-i), end='')
+
+    # compute each value in the row
+    coef = 1
+    for j in range(0, i + 1):
+        print(coef, end=' ')
+        coef = coef * (i - j) // (j + 1)
+    print()
+
+#Output
+#      1 
+#     1 1 
+#    1 2 1 
+#   1 3 3 1 
+#  1 4 6 4 1 
+# 1 5 10 10 5 1 
 ```
 
 ### Indirect and Tough Questions
